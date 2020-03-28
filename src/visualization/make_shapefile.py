@@ -14,7 +14,7 @@ def abbreviate(word):
  
 # reaiding files
 shp = gpd.read_file('zip:///Users/babak.jfard/Downloads/cb_2017_31_bg_500k.zip')
-df = pd.read_csv('/Users/babak.jfard/Downloads/aff_download/ACS_17_5YR_B01001_with_ann.csv')
+df = pd.read_csv('/Users/babak.jfard/Downloads/aff_download/ACS_17_5YR_B01001_with_ann_60_Over.csv')
 
 df.head()
 cols = [c for c in df.columns if not('Margin' in c)]
@@ -32,6 +32,6 @@ shp['GEOID']=shp['GEOID'].astype('str')
 df['Id2']=df['Id2'].astype('int').astype('str')
 df_shp = pd.merge(shp, df, left_on='AFFGEOID', right_on='Id')
 
-df_shp.to_file('/Users/babak.jfard/Downloads/NE_ages_Bg-2017.shp')
+df_shp.to_file('/Users/babak.jfard/Downloads/NE_ages_Bg-2017_over60.shp')
  
 
